@@ -4,7 +4,7 @@ We get all trips
 POST /api/trips
 Create a trip
 
-PUT /api/trips/IDTrip
+PUT /api/trips/tripID
 Update a trip
 
-DELETE /api/trips/IDTrip
+DELETE /api/trips/tripID

@@ -33,6 +33,42 @@ router
             })  
         }
     })
+    .put('/:tripID', async (req, res) => {
+        
+        try {
+
+            const tripUpdate = await Trip.findByIdAndUpdate(
+                req.params.tripID,
+                req.body,
+                { new: true }
+            );
+
+            res.json(tripUpdate);
+            
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({
+                error: 'An error has occurred'
+            }) 
+        }
+    })
+    .delete('/:tripID', async (req, res) => {
+
+        try {
+            
+            const tripDelete = await Trip.findByIdAndDelete(
+                req.params.tripID
+            );
+
+            res.json(tripDelete);
+            
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({
+                error: 'An error has occurred'
+            }) 
+        }
+    })
 
 
 module.exports = router;
